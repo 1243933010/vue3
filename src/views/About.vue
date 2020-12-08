@@ -28,24 +28,25 @@
 <script lang="ts">
 import aboutComponent from "@/components/AboutComponent.vue";
 import { onMounted, ref, provide, computed, reactive } from "vue";
-import router from "../router/index";
-import store from "../store/index";
+// import router from "../router/index";
+// import store from "../store/index";
 import { mapState } from "vuex";
 import { addRoute, timeSetVuex, setVuex } from "../fnc/about.js";
 export default {
   components: {
     aboutComponent,
   },
-  setup(props, content) {
+  setup() {
     const msg = ref<string>("prop msg1");
     const name = ref<string>("yue");
     const nameLen = computed(() => name.value.length);
 
     const arr = reactive([]);
-    const username = ref("yue");
-    const age = ref("24");
+    const username = ref<string>("yue");
+    const age = ref<string>("24");
     function add() {
       const obj = { username: username.value, age: age.value };
+      console.log(obj)
       arr.push(obj);
     }
     provide("provideData", "123456");
@@ -70,9 +71,13 @@ export default {
   computed: mapState(["vuexA"]),
   methods: {
     getChildrenMsg() {
-      console.log(this.$refs.aboutRef);
+      // console.log(this.$refs.aboutRef);
     }, //获取子组件信息
     //addrouter
   },
 };
 </script>
+
+<style lang="sass" scoped>
+
+</style>
