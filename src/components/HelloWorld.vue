@@ -1,20 +1,34 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-     <el-button>默认按钮</el-button>
+    <div>{{provideData}}provideData</div>
+     <el-button @click="helloBtn">默认按钮</el-button>
   </div>
 </template>
 
 <script lang="ts">
+// import { emit } from 'process';
 import { Options, Vue } from 'vue-class-component';
 
 @Options({
   props: {
     msg: String
+  },
+  inject:['provideData'],
+  mounted(){
+    console.log('****')
+    console.log(this)
   }
 })
 export default class HelloWorld extends Vue {
   msg!: string
+  helloBtn(){
+    // console.log(this.$emit)
+    this.$emit('listen-hello',{a:11})
+  }
+  helloTest(){
+    console.log('test')
+  }
 }
 </script>
 
