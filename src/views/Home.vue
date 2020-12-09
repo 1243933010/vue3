@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png" /> -->
-    <HelloWorld @listenHello="listenHello" ref="hello" msg="Welcome to Your Vue.js + TypeScript App" />
+    <HelloWorld @listenHello="listenHello" ref="hello" msg="Welcome to Your Vue.js + TypeScript App">
+      parent slot
+    </HelloWorld>
     <div>{{ a }}</div>
     <div>{{ b }}</div>
     <div>{{ c }}</div>

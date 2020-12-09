@@ -2,6 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <div>{{provideData}}provideData</div>
+    <slot>slot</slot>
      <el-button @click="helloBtn">默认按钮</el-button>
   </div>
 </template>

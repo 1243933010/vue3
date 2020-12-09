@@ -3,8 +3,8 @@
       <div>about component</div>
       <div>{{msg}}</div>
       <div>{{childData}}childData</div>
-    <!-- <h1>{{ msg }}</h1>
-     <el-button @click="helloBtn">默认按钮</el-button> -->
+      <h1>{{ msg }}</h1>
+     <el-button @click="helloBtn">默认按钮</el-button>
      <div>-----------------------------------</div>
      <children />
   </div>
@@ -20,9 +20,14 @@ export default {
     components:{
         children
     },
-    setup(){
+    setup(props: object,context: {emit: Function}){
+        console.log(props)
+        console.log(context.emit)
         const childData = inject('provideData');
-        return {childData}
+        function helloBtn(): void{
+            context.emit('get-children','123')
+        }
+        return {childData,helloBtn}
     }
 }
 </script>
